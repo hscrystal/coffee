@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+  app:
+    image: hscrystal/php8.0.3-fpm
+    volumes:
+      - ./:/var/www/
+
+  nginx:
+    image: nginx:1.19.8-alpine
+    volumes:
+      - ./:/var/www/
+      - ./nginx/conf:/etc/nginx/conf.d
+    ports:
+      - 80:80
+
