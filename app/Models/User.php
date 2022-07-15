@@ -18,10 +18,22 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'fullname',
+        'username',
         'email',
+        'email_verified_at',
         'password',
+        'tel',
+        'avatar',
+        'role',
     ];
+    /**
+    * Products Relationship
+    */
+    public function products()
+    {
+        return $this->hasMany(Product::class)->orderBy('id', 'desc');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
